@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Página de Login</title>
+        <meta charset="UTF-8">
+        <link href="{{ url_for ('static', filename='cadastro_aluno.css')}}" rel="stylesheet">
+    </head>
+
+    <body>
+    <div id = "main">
+        <div>
+        <a href="/login"> 
+        <img src="../../static/imagens/Group (1).png" alt="Minerva" class= "arrow-image">
+        </a>
+        </div>
+        <img src="../../static/imagens/logo.png" alt="Minerva" class= "main-image">
+
+
+        <form action="/cadastroaluno" method="POST">
+        <div class= "text"> 
+            <label for="nome" class="">Nome:</label><br>
+            <input class = "input" type="text" id="nome" name="nome"><br><br>
+        
+            <label for="cpf" class="">CPF:</label><br>
+            <input class = "input" type="text" id="cpf" name="cpf"><br><br>
+
+            <label for="email" class="">E-mail:</label><br>
+            <input class = "input" type="text" id="email" name="email"><br><br>
+
+            <label for="DRE" class="">DRE:</label><br>
+            <input class = "input" type="text" id="dre" name="dre"><br><br>
+
+            <label for="curso" class="">Curso:</label><br>
+            <input class = "input" type="text" id="curso" name="curso"><br><br>
+            
+            <label for="senha">Senha:</label><br>
+            <input  class = "input" type="password" id="senha" name="senha"><br><br>
+
+        </div>  
+            <input class = "button" type="submit" value="Cadastrar">
+        </form>
+        
+    
+    </div>   
+    </body>
+</html>

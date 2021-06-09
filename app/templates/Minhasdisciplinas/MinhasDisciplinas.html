@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Minhas Disciplinas</title>
+        <meta charset="UTF-8">
+        <link href="{{ url_for ('static', filename='materias.css')}}" rel="stylesheet">
+    </head>
+
+    <body>
+  
+        <div id = "header">
+            <img src="../../static/imagens/logo.png" alt="Minerva" class= "m-image">
+            <div  id= "p">
+                <div id= "profile-box">
+                    <img src="../../static/imagens/profile-user (1) 1.png" alt="profile" id= "profile">
+                    <p id = "profileName">{{current_user.nome}}</p>
+                </div>
+
+                <a href="/logout" id= "leave">
+                    <img src="../../static/imagens/logout (1) 1.png" alt="leave">
+
+                </a>
+            </div>
+        </div>  
+
+        <div id = "main">
+        <div id= "header2">
+           <h1>Minhas Disciplinas</h1>
+           <div id = "search">
+                <p id = "profileName">Pesquisar:</p>
+                <input type="text" class="input">
+                <input type = "submit" id = "button" value="Buscar">
+            </div> 
+        </div>
+        <div id = "materias">
+           
+           
+            <div class ="materia-container" id = "ad">
+                <a href='/criardisciplina'>
+                <p id="profileName">Adicionar disciplina</p>  
+                </a>
+            </div>
+            
+            {%for materia in materias %}
+            <div class="materia-container" id="ad" ><a href = '/materia/{{materia.id}}'><p class="profileName">   {{materia.materia}}   </p></a></div>
+            {% endfor %}
+        </div>
+        
+        </div>
+
+    </body>
+</html>

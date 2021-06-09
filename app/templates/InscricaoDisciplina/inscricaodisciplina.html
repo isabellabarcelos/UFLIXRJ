@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Inscrição em Disciplina</title>
+        <meta charset="UTF-8">
+        <link href="{{ url_for ('static', filename='CriarDisciplina.css')}}" rel="stylesheet">
+    </head>
+
+    <body>
+  
+        <div id = "header">
+            <img src="../../static/imagens/logo.png" alt="Minerva" class= "m-image">
+            <div  id= "p">
+                <div id= "profile-box">
+                    <img src="../../static/imagens/profile-user (1) 1.png" alt="profile" id= "profile">
+                    <p id = "profileName">{{current_user.nome}}</p>
+                </div>
+
+                <a href="/logout" id= "leave">
+                    <img src="../../static/imagens/logout (1) 1.png" alt="leave">
+
+                </a>
+            </div>
+        </div>   
+
+        <div id = "main">      
+            <div><h1>Inscrição em Disciplina</h1></div>
+    
+            <form action="/inscricaodisciplina" method="POST">
+            <div class= "text">    
+                <label for="codigo_turma" id="profileName">Código da turma:</label><br>
+                <input class = "input" type="text" id="codigo_turma" name="codigo_turma"><br><br>
+            </div>
+
+                <input class = "button" type="submit" value="Inscrever-se">
+            </form>
+        </div>
+
+
+    </body>
+</html>

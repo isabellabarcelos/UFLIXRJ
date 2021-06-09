@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Minhas Disciplinas</title>
+        <meta charset="UTF-8">
+        <link href="{{ url_for ('static', filename='disciplina.css')}}" rel="stylesheet">
+    </head>
+
+    <body>
+  
+        <div id = "header">
+            <img src="../../static/imagens/logo.png" alt="Minerva" class= "m-image">
+            <div  id= "p">
+                <div id= "profile-box">
+                    <img src="../../static/imagens/profile-user (1) 1.png" alt="profile" id= "profile">
+                    <p id = "profileName">{{current_user.nome}}</p>
+                </div>
+
+                <a href="/logout" id= "leave">
+                    <img src="../../static/imagens/logout (1) 1.png" alt="leave">
+
+                </a>
+            </div>
+        </div>  
+
+        <div id = "main">
+        <div id= "header2">
+            <h1>{{materia.materia}}</h1>
+           <div id = "search">
+                <p id = "profileName">Pesquisar:</p>
+                <input type="text" class="input">
+                <input type = "submit" id = "button" value="Buscar">
+            </div> 
+     
+        </div>
+           <div id = "info"><p>Código da disciplina: {{materia.codigo_materia}} | Período: {{materia.periodo}}</p></div>
+        <div id = "videos">
+           
+           
+            <div class ="materia-container" id = "ad">
+                <img src="../../static/imagens/plus (2) 1 (1).png" alt="leave" id= "plus">
+                <a href='/video/create'>
+                    <p id="profileName">Adicionar Vídeo</p>
+                </a>
+                
+            </div>
+            {% if videos %}
+            {% for video in videos %}
+            <div class="materia-container" id="video" ><a href = '/materia/{{video.id}}'></a>
+                <div class ="materia-container">
+                    <div class = "info-container">
+                        <h4 id ="infodd">{{video.nome}}</h4>
+                        <h5>Descrição:</h6> 
+                        <p id ="infod">{{video.descricao}}</p>
+                    </div>  
+            </div>
+            </div>
+            {% endfor %}
+            {% endif  %}            
+               
+        </div>
+
+    </body>
+</html>
