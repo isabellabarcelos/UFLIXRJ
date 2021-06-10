@@ -9,28 +9,30 @@ class VideoDetails(MethodView): #/video
     def get(self):
             return render_template("video/video.html")
 
-class VideoCreate(MethodView): #/video/create
-    def get(self):
-        return render_template("AdicionarVideo/adicionarvideo.html")
+class VideoCreate(MethodView): #/video/create/<int:materia_id>
+    def get(self, materia_id):
+        return render_template("AdicionarVideo/adicionarvideo.html", materia = materia_id) 
 
-    def post(self): 
+    def post(self, materia_id): 
         data = request.form
 
         nome = data['nome']
         descricao = data['descricao']
         link = data['link']
+        materia = materia_id
 
         if not isinstance(nome, str) or not isinstance(descricao, str):
             return {"error" : "Algum tipo invalido"}, 400
+        
 
-        video = Video(nome=nome, descricao=descricao , link=link)
+        video = Video(nome=nome, descricao=descricao , link=link, criardisciplina_id=materia)
 
         db.session.add(video)
         db.session.commit()
 
         print(video.criardisciplina_id)
         
-        return redirect ("/materia/<id_materia>")
+        return redirect ("/materia/"+  str(materia_id))
         
 class VideoEdit(MethodView): #/video/edit/<int:id>
     def get(self,id):

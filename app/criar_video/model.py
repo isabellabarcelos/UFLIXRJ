@@ -7,8 +7,9 @@ class Video(BaseModel):
     nome = db.Column(db.String(50), nullable=False)
     descricao = db.Column(db.String(50), nullable=False)
     link = db.Column(db.String(5), nullable=False)
+    
 
-    criardisciplina_id = db.Column(db.Integer, db.ForeignKey('criardisciplina.id'))
+    criardisciplina_id = db.Column(db.Integer, db.ForeignKey('criardisciplina.id')) 
 
     def json(self): 
         return {

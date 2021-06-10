@@ -8,5 +8,5 @@ video_api.add_url_rule(
 )
 
 video_api.add_url_rule(
-    '/video/create', view_func = VideoCreate.as_view('video_create'), methods = ['GET', 'POST']
+    '/video/create/<int:materia_id>', view_func = VideoCreate.as_view('video_create'), methods = ['GET', 'POST']
 )

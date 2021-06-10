@@ -48,7 +48,7 @@ def create_app():
     def materia_especifica(id):
         id_materia = id
         materia = CriarDisciplina.query.filter_by(id = id_materia).first()
-        videos = Video.query.filter_by(criardisciplina_id = id_materia).first()
+        videos = Video.query.filter_by(criardisciplina_id = id_materia)
         return render_template ("Disciplina/Disciplina.html", materia= materia, videos = videos)
 
     @app.route('/materia/video')
