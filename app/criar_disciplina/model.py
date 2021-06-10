@@ -10,9 +10,9 @@ class CriarDisciplina(BaseModel):
     codigo_materia = db.Column(db.String(5), nullable=False)
     codigo_turma = db.Column(db.String(5), nullable=False, unique = True)
 
+    video = db.relationship("Video") 
+    #user = db.relationship("User", secondary=association_table, back_populates="criardisciplina") 
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    video = db.relationship("Video")
-
 
     def json(self): 
         return {

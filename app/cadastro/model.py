@@ -15,8 +15,9 @@ class User(UserMixin, BaseModel):
     senha_hash = db.Column(db.String(280), nullable=False)
     classe = db.Column(db.Boolean())
 
+    #criardisciplina = db.relationship("CriarDisciplina", secondary=association_table, back_populates="user")  
+    
     criardisciplina = db.relationship("CriarDisciplina")
-
     #role 
     '''
     {% if current_user.role is_authenticated %}

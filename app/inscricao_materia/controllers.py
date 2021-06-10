@@ -8,12 +8,14 @@ from jinja2 import TemplateNotFound
 from flask import redirect
 
 class InscricaoDisciplina(MethodView): #/inscricaodisciplina 
+    def get(self):
+        return render_template("InscricaoDisciplina/inscricaodisciplina.html") 
     def post(self): 
         codigo_turma = request.form.get('codigo_turma')
         materia = CriarDisciplina.query.filter_by(codigo_turma=codigo_turma).first()
-        if materia:
-            materia = User.criardisciplina
-        return redirect('/login')
+        if materia.codigo_turma == codigo_turma:
+            User.criardisciplina.id = materia.id
+        return redirect('/materia')
 
     #current_user.materias 
     #query.all(id) == current.user.id

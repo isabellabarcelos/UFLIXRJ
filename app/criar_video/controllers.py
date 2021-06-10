@@ -29,7 +29,8 @@ class VideoCreate(MethodView): #/video/create
         db.session.commit()
 
         print(video.criardisciplina_id)
-        return redirect ('/materia/<int:id>')
+        
+        return redirect ("/materia/<id_materia>")
         
 class VideoEdit(MethodView): #/video/edit/<int:id>
     def get(self,id):

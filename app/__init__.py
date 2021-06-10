@@ -10,6 +10,7 @@ from app.criar_disciplina.routes import criar_disciplina_api
 from app.login.controllers import login_api, main_api
 from app.minhas_disciplinas.routes import minhas_disciplinas_api
 from app.criar_video.routes import video_api
+from app.inscricao_materia.routes import inscricao_materia_api
 
 def create_app():
     app = Flask(__name__)
@@ -28,6 +29,7 @@ def create_app():
     app.register_blueprint(minhas_disciplinas_api)
     app.register_blueprint(main_api)
     app.register_blueprint(video_api)
+    app.register_blueprint(inscricao_materia_api)
 
 
     from app.cadastro.model import User
