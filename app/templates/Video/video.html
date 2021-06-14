@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Aula 1</title>
+        <title>{{videos.nome}}</title>
         <meta charset="UTF-8">
         <link href="{{ url_for ('static', filename='video.css')}}" rel="stylesheet">
     </head>
@@ -11,8 +11,7 @@
             <img src="../../static/imagens/logo.png" alt="Minerva" class= "m-image">
             <div  id= "p">
                 <div id= "profile-box">
-                    <img src="../../static/imagens/profile-user (1) 1.png" alt="profile" id= "profile">
-                    <p id = "profileName">{{current_user.name}}</p>
+                    <p id = "profileName">{{current_user.nome}}</p>
                 </div>
 
                 <a href="/logout" id= "leave">
@@ -20,20 +19,25 @@
 
                 </a>
             </div>
-        </div> 
-
-        <div id = "main">
-        <div id= "header2">
-            <img src="../../static/imagens/Group (1).png" alt="Minerva" class= "arrow-image">
-           <h1>Aula 1 - Introdução</h1>
+        </div>  
         
+        <div id = "main">
+             <div>
+                <a href='/materia/{{videos.criardisciplina_id}}'> 
+                <img src="../../static/imagens/Group (1).png" alt="Minerva" class= "arrow-image">
+                </a>
+            </div>
+        <div id= "header2">
+        
+            <h1>{{videos.nome}}</h1>
+           
         </div>
    
            
 
             <div class ="materia-container">
 
-                <iframe width="675,5" height="380" src="https://www.youtube.com/embed/b_8fISXUBF0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="675,5" height="380" src={{videos.link}} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
    
 

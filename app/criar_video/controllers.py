@@ -3,11 +3,13 @@ from app.criar_disciplina.model import CriarDisciplina
 from app.extensions import db
 from flask import request, render_template, redirect
 from flask.views import MethodView
-from flask_login import current_user, login_required
 
-class VideoDetails(MethodView): #/video
-    def get(self):
-            return render_template("video/video.html")
+class VideoDetails(MethodView): #/video/<int:id>
+    def get(self, id):
+        id_video = id
+        videos = Video.query.filter_by(id = id_video).first()
+        return render_template("video/video.html", videos = videos)
+
 
 class VideoCreate(MethodView): #/video/create/<int:materia_id>
     def get(self, materia_id):
@@ -24,8 +26,8 @@ class VideoCreate(MethodView): #/video/create/<int:materia_id>
         if not isinstance(nome, str) or not isinstance(descricao, str):
             return {"error" : "Algum tipo invalido"}, 400
         
-
-        video = Video(nome=nome, descricao=descricao , link=link, criardisciplina_id=materia)
+        linkcerto = link.replace("watch?v=", "embed/")
+        video = Video(nome=nome, descricao=descricao , link=linkcerto, criardisciplina_id=materia)
 
         db.session.add(video)
         db.session.commit()
